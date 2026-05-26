@@ -1,0 +1,1591 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.5.25",
+    "lastTouchedAt": "2026-05-25T00:00:00.0000"
+  },
+  "wizard": {
+    "lastRunAt": "2026-05-25T00:00:00.0000",
+    "lastRunVersion": "2026.5.25",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "<open-claw-gateway-token>"
+    },
+    "port": 18789,
+    "bind": "loopback",
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "controlUi": {
+      "allowInsecureAuth": true
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send",
+        "sms.search"
+      ]
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "auth": {
+    "profiles": {
+      "google:default": {
+        "mode": "api_key",
+        "provider": "google"
+      }
+    }
+  },
+  "env": {
+    "DISCORD_BOT_TOKEN": "<discord-bot-token>",
+    "ANTHROPIC_AUTH_TOKEN": "<azure-api-key>",
+    "ANTHROPIC_BASE_URL": "https://<azure-base-url>/anthropic/",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-5",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "claude-sonnet-4-5",
+    "ANTHROPIC_FOUNDRY_API_KEY": "<azure-api-key>",
+    "ANTHROPIC_FOUNDRY_BASE_URL": "https://<azure-base-url>/anthropic/",
+    "ANTHROPIC_MODEL": "opusplan",
+    "AZURE_OPENAI_API_KEY": "<azure-api-key>",
+    "GEMINI_API_KEY": "<gemini-api-key>",
+    "GEMINI_DEEP_RESEARCH_API_KEY": "<gemini-deep-research-api-key>",
+    "NANOBANANA_GEMINI_API_KEY": "<nanobanana-gemini-api-key>",
+    "NANOBANANA_GOOGLE_API_KEY": "<nanobanana-google-api-key>",
+    "NANOBANANA_MODEL": "gemini-3-pro-image-preview",
+    "TRADING212_API_KEY": "<trading212-api-key>",
+    "TRADING212_API_SECRET": "<trading212-api-secret>",
+    "SEARXNG_BASE_URL": "http://localhost:4000"
+  },
+  "models": {
+    "providers": {
+      "anthropic": {
+        "baseUrl": "<azure-base-url>/anthropic",
+        "apiKey": "<azure-api-key>",
+        "api": "anthropic-messages",
+        "headers": {
+          "api-key": "<azure-api-key>"
+        },
+        "authHeader": false,
+        "models": [
+          {
+            "id": "claude-opus-4-5",
+            "name": "Claude Opus 4.5 (Azure)",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 64000,
+            "api": "anthropic-messages"
+          },
+          {
+            "id": "claude-sonnet-4-5",
+            "name": "Claude Sonnet 4.5 (Azure)",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 200000,
+            "maxTokens": 64000,
+            "api": "anthropic-messages"
+          }
+        ]
+      },
+      "azure-openai-responses": {
+        "baseUrl": "https://<azure-base-url>/openai/v1",
+        "apiKey": "<azure-api-key>",
+        "api": "openai-responses",
+        "headers": {
+          "api-key": "<azure-api-key>"
+        },
+        "authHeader": false,
+        "models": [
+          {
+            "id": "gpt-5.3-codex",
+            "name": "GPT-5.3-Codex (Azure)",
+            "reasoning": true,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 400000,
+            "maxTokens": 16384,
+            "compat": {
+              "supportsStore": false
+            },
+            "api": "openai-responses"
+          },
+          {
+            "id": "gpt-5.5",
+            "name": "GPT-5.5 (Azure)",
+            "reasoning": false,
+            "input": [
+              "text",
+              "image"
+            ],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "contextWindow": 272000,
+            "maxTokens": 16384,
+            "compat": {
+              "supportsStore": false
+            },
+            "api": "openai-responses"
+          }
+        ]
+      },
+      "ollama": {
+        "api": "ollama",
+        "apiKey": "ollama-local",
+        "baseUrl": "http://127.0.0.1:11434",
+        "models": [
+          {
+            "contextWindow": 202752,
+            "cost": {
+              "cacheRead": 0,
+              "cacheWrite": 0,
+              "input": 0,
+              "output": 0
+            },
+            "id": "glm-5.1:cloud",
+            "input": [
+              "text"
+            ],
+            "name": "glm-5.1:cloud",
+            "reasoning": true,
+            "params": {
+              "num_ctx": 202752
+            }
+          }
+        ]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "/home/<username>/.openclaw/workspace",
+      "model": {
+        "primary": "ollama/glm-5.1:cloud"
+      },
+      "thinkingDefault": "high",
+      "imageGenerationModel": {
+        "primary": "google/gemini-3-pro-image-preview"
+      },
+      "maxConcurrent": 10,
+      "subagents": {
+        "maxConcurrent": 8,
+        "maxSpawnDepth": 2
+      },
+      "compaction": {
+        "mode": "safeguard"
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "bible-study",
+        "name": "BibleMate",
+        "workspace": "/home/<username>/.openclaw/workspaces/bible-study",
+        "agentDir": "/home/<username>/.openclaw/agents/bible-study/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "bible-deep-research",
+        "name": "BibleDeepResearch",
+        "workspace": "/home/<username>/.openclaw/workspaces/bible-deep-research",
+        "agentDir": "/home/<username>/.openclaw/agents/bible-deep-research/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "image-generator",
+        "name": "ImageGen",
+        "workspace": "/home/<username>/.openclaw/workspaces/image-generator",
+        "agentDir": "/home/<username>/.openclaw/agents/image-generator/agent",
+        "model": "google/gemini-2.5-pro"
+      },
+      {
+        "id": "stock-trading",
+        "name": "stock-trading",
+        "workspace": "/home/<username>/.openclaw/workspaces/stock-trading",
+        "agentDir": "/home/<username>/.openclaw/agents/stock-trading/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "personal-assistant",
+        "name": "Personal Assistant",
+        "workspace": "/home/<username>/.openclaw/workspaces/personal-assistant",
+        "agentDir": "/home/<username>/.openclaw/agents/personal-assistant/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "knowledge",
+        "name": "Knowledge",
+        "workspace": "/home/<username>/.openclaw/workspaces/knowledge",
+        "agentDir": "/home/<username>/.openclaw/agents/knowledge/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "stock-market-knowledge",
+        "name": "Stock Market Knowledge",
+        "workspace": "/home/<username>/.openclaw/workspaces/stock-market-knowledge",
+        "agentDir": "/home/<username>/.openclaw/agents/stock-market-knowledge/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "downloader",
+        "name": "Downloader",
+        "workspace": "/home/<username>/.openclaw/workspaces/downloader",
+        "agentDir": "/home/<username>/.openclaw/agents/downloader/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "online-search",
+        "name": "SearchBot",
+        "workspace": "/home/<username>/.openclaw/workspaces/online-search",
+        "agentDir": "/home/<username>/.openclaw/agents/online-search/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "writing-coach",
+        "name": "Writing Coach",
+        "workspace": "/home/<username>/.openclaw/workspaces/writing-coach",
+        "agentDir": "/home/<username>/.openclaw/agents/writing-coach/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "british-english-translator",
+        "name": "british-english-translator",
+        "workspace": "/home/<username>/.openclaw/workspaces/british-english-translator",
+        "agentDir": "/home/<username>/.openclaw/agents/british-english-translator/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "traditional-chinese-translator",
+        "name": "traditional-chinese-translator",
+        "workspace": "/home/<username>/.openclaw/workspaces/traditional-chinese-translator",
+        "agentDir": "/home/<username>/.openclaw/agents/traditional-chinese-translator/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "scripture-treasury",
+        "name": "Scripture Treasury",
+        "workspace": "/home/<username>/.openclaw/workspaces/scripture-treasury",
+        "agentDir": "/home/<username>/.openclaw/agents/scripture-treasury/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "prayers",
+        "name": "Prayers",
+        "workspace": "/home/<username>/.openclaw/workspaces/prayers",
+        "agentDir": "/home/<username>/.openclaw/agents/prayers/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "church-pastor",
+        "name": "Church Pastor",
+        "workspace": "/home/<username>/.openclaw/workspaces/church-pastor",
+        "agentDir": "/home/<username>/.openclaw/agents/church-pastor/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "stock-scanning",
+        "name": "Stock Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/stock-scanning",
+        "agentDir": "/home/<username>/.openclaw/agents/stock-scanning/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "policy-catalyst-scanner",
+        "name": "Policy Catalyst Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/policy-catalyst-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/policy-catalyst-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "base-breakout-scanner",
+        "name": "Base Breakout Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/base-breakout-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/base-breakout-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "breaking-news-scanner",
+        "name": "Breaking News Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/breaking-news-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/breaking-news-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "pre-surge-scanner",
+        "name": "Pre-Surge Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/pre-surge-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/pre-surge-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "pre-catalyst-scanner",
+        "name": "Pre-Catalyst Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/pre-catalyst-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/pre-catalyst-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "small-cap-earnings-scanner",
+        "name": "Small-Cap Earnings Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/small-cap-earnings-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/small-cap-earnings-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "small-cap-explosive-scanner",
+        "name": "Small-Cap Earnings Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/small-cap-explosive-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/small-cap-explosive-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "real-time-premarket-scanner",
+        "name": "real-time-premarket-scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/real-time-premarket-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/real-time-premarket-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "nano-cap-earnings-scanner",
+        "name": "Nano-Cap Explosive Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/nano-cap-earnings-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/nano-cap-earnings-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "nano-cap-explosive-scanner",
+        "name": "Nano-Cap Explosive Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/nano-cap-explosive-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/nano-cap-explosive-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "mega-mover-scanner",
+        "name": "Mega Mover Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/mega-mover-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/mega-mover-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "insider-buying-scanner",
+        "name": "Insider Buying Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/insider-buying-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/insider-buying-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "biotech-conference-scanner",
+        "name": "Biotech Conference Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/biotech-conference-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/biotech-conference-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "event-driven-scanner",
+        "name": "Event-Driven Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/event-driven-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/event-driven-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "explosive-scanner",
+        "name": "Explosive Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/explosive-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/explosive-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "stock-trading-analyst",
+        "name": "Stock Trading Analyst",
+        "workspace": "/home/<username>/.openclaw/workspaces/stock-trading-analyst",
+        "agentDir": "/home/<username>/.openclaw/agents/stock-trading-analyst/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "momentum-scanner",
+        "name": "Stock Momentum Analyst",
+        "workspace": "/home/<username>/.openclaw/workspaces/momentum-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/momentum-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "premarket-gainers-scanner",
+        "name": "Stock Premarket Gainers Analyst",
+        "workspace": "/home/<username>/.openclaw/workspaces/premarket-gainers-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/premarket-gainers-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "international-exchanges-scanner",
+        "name": "International Exchanges Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/international-exchanges-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/international-exchanges-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "oversold-bounce-scanner",
+        "name": "Oversold Bounce Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/oversold-bounce-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/oversold-bounce-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "intraday-surge-scanner",
+        "name": "Intraday Surge Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/intraday-surge-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/intraday-surge-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "after-hours-scanner",
+        "name": "After-Hours Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/after-hours-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/after-hours-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "operational-milestone-scanner",
+        "name": "Operational Milestone Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/operational-milestone-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/operational-milestone-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "48-hour-surge-scanner",
+        "name": "48-Hour Surge Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/48-hour-surge-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/48-hour-surge-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "pre-earnings-runup-scanner",
+        "name": "Pre-Earnings Run-Up Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/pre-earnings-runup-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/pre-earnings-runup-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "pdufa-scanner",
+        "name": "PDUFA Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/pdufa-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/pdufa-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "3-day-5pct-scanner",
+        "name": "3-Day 5% Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/3-day-5pct-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/3-day-5pct-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "stock-ticker-deep-dive-analyst",
+        "name": "Stock Ticker Deep Dive Analyst",
+        "workspace": "/home/<username>/.openclaw/workspaces/stock-ticker-deep-dive-analyst",
+        "agentDir": "/home/<username>/.openclaw/agents/stock-ticker-deep-dive-analyst/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "stock-market-price-analyst",
+        "name": "Stock Market Price Analyst",
+        "workspace": "/home/<username>/.openclaw/workspaces/stock-market-price-analyst",
+        "agentDir": "/home/<username>/.openclaw/agents/stock-market-price-analyst/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "dip-before-catalyst-scanner",
+        "name": "Dip Before Catalyst Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/dip-before-catalyst-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/dip-before-catalyst-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "7-day-explosive-scanner",
+        "name": "7-Day Explosive Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/7-day-explosive-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/7-day-explosive-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "pre-move-discovery-scanner",
+        "name": "Pre-Move Discovery Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/pre-move-discovery-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/pre-move-discovery-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "biotech-catalyst-scanner",
+        "name": "Biotech Catalyst Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/biotech-catalyst-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/biotech-catalyst-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "stock-coordinator",
+        "name": "Stock Coordinator",
+        "workspace": "/home/<username>/.openclaw/workspaces/stock-coordinator",
+        "agentDir": "/home/<username>/.openclaw/agents/stock-coordinator/agent",
+        "model": "ollama/glm-5.1:cloud",
+        "subagents": {
+          "allowAgents": [
+            "*"
+          ]
+        }
+      },
+      {
+        "id": "unusual-options-scanner",
+        "name": "Unusual Options Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/unusual-options-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/unusual-options-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "short-squeeze-scanner",
+        "name": "Short Squeeze Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/short-squeeze-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/short-squeeze-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "earnings-post-event-scanner",
+        "name": "Earnings Post-Event Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/earnings-post-event-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/earnings-post-event-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "sector-rotation-scanner",
+        "name": "Sector Rotation Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/sector-rotation-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/sector-rotation-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "sec-filing-anomaly-scanner",
+        "name": "SEC Filing Anomaly Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/sec-filing-anomaly-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/sec-filing-anomaly-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "gap-and-go-scanner",
+        "name": "Gap & Go Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/gap-and-go-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/gap-and-go-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "earnings-estimate-revision-scanner",
+        "name": "Earnings Estimate Revision Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/earnings-estimate-revision-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/earnings-estimate-revision-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "crypto-correlation-scanner",
+        "name": "Crypto Correlation Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/crypto-correlation-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/crypto-correlation-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "second-order-scanner",
+        "name": "second-order-scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/second-order-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/second-order-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "insider-selling-dilution-scanner",
+        "name": "Insider Selling / Dilution Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/insider-selling-dilution-scanner",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "analyst-upgrade-downgrade-scanner",
+        "name": "Analyst Upgrade/Downgrade Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/analyst-upgrade-downgrade-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/analyst-upgrade-downgrade-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "technical-pattern-scanner",
+        "name": "Technical Pattern Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/technical-pattern-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/technical-pattern-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "contrarian-sentiment-scanner",
+        "name": "Contrarian Sentiment Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/contrarian-sentiment-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/contrarian-sentiment-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
+        "id": "ipo-spac-scanner",
+        "name": "IPO/SPAC Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/ipo-spac-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/ipo-spac-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      }
+    ]
+  },
+  "channels": {
+    "discord": {
+      "enabled": true,
+      "token": {
+        "source": "env",
+        "provider": "default",
+        "id": "DISCORD_BOT_TOKEN"
+      },
+      "groupPolicy": "allowlist",
+      "guilds": {
+        "<discord-server-id>": {
+          "requireMention": false,
+          "users": [
+            "<discord-user-id>"
+          ]
+        }
+      },
+      "applicationId": "<discord-application-id>",
+      "dmPolicy": "allowlist",
+      "allowFrom": [
+        "<discord-user-id>"
+      ]
+    },
+    "telegram": {
+      "botToken": "<telegram-bot-token>",
+      "capabilities": {
+        "inlineButtons": "all"
+      },
+      "dmPolicy": "pairing",
+      "enabled": true,
+      "groupAllowFrom": [
+        "*"
+      ],
+      "groupPolicy": "allowlist",
+      "groups": {
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        },
+        "<telegram-group-id>": {
+          "groupPolicy": "open",
+          "requireMention": false
+        }
+      },
+      "streaming": {
+        "mode": "partial",
+        "chunkMode": "length"
+      },
+      "textChunkLimit": 3800
+    },
+    "whatsapp": {
+      "allowFrom": [
+        "<whatsapp-number>"
+      ],
+      "debounceMs": 0,
+      "dmPolicy": "allowlist",
+      "enabled": true,
+      "groupAllowFrom": [
+        "*"
+      ],
+      "groupPolicy": "open",
+      "groups": {
+        "<whatsapp-group-id>": {
+          "requireMention": false
+        },
+        "<whatsapp-group-id>": {
+          "requireMention": false
+        }
+      },
+      "mediaMaxMb": 50
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "bible-study",
+      "match": {
+        "channel": "whatsapp",
+        "peer": {
+          "kind": "group",
+          "id": "<whatsapp-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "bible-deep-research",
+      "match": {
+        "channel": "whatsapp",
+        "peer": {
+          "kind": "group",
+          "id": "<whatsapp-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "bible-study",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "bible-deep-research",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "scripture-treasury",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "prayers",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "church-pastor",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "personal-assistant",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "text-to-speech",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "image-generator",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "knowledge",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "downloader",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "online-search",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "writing-coach",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "british-english-translator",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "traditional-chinese-translator",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "stock-trading",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "stock-scanning",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "stock-trading-analyst",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "stock-market-knowledge",
+      "match": {
+        "channel": "telegram",
+        "peer": {
+          "kind": "group",
+          "id": "<telegram-group-id>"
+        }
+      }
+    },
+    {
+      "agentId": "stock-coordinator",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "stock-market-price-analyst",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "stock-ticker-deep-dive-analyst",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "sector-rotation-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "technical-pattern-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "unusual-options-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "short-squeeze-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "breaking-news-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "second-order-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "48-hour-surge-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "3-day-5pct-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "7-day-explosive-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "operational-milestone-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "ipo-spac-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "pre-surge-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "pre-catalyst-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "pre-move-discovery-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "dip-before-catalyst-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "contrarian-sentiment-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "oversold-bounce-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "base-breakout-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "mega-mover-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "sec-filing-anomaly-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "insider-buying-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "insider-selling-dilution-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "policy-catalyst-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "international-exchanges-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "event-driven-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "analyst-upgrade-downgrade-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "earnings-estimate-revision-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "pre-earnings-runup-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "earnings-post-event-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "crypto-correlation-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "biotech-catalyst-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "biotech-conference-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "pdufa-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "small-cap-earnings-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "small-cap-explosive-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "nano-cap-earnings-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "nano-cap-explosive-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "premarket-gainers-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "real-time-premarket-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "gap-and-go-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "channel",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "intraday-surge-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "momentum-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "after-hours-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "explosive-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "stock-market-knowledge",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    }
+  ],
+  "tools": {
+    "profile": "coding",
+    "web": {
+      "search": {
+        "provider": "searxng",
+        "enabled": true,
+        "openaiCodex": {}
+      },
+      "fetch": {
+        "enabled": true
+      }
+    },
+    "agentToAgent": {
+      "enabled": true,
+      "allow": [
+        "*"
+      ]
+    },
+    "sessions": {
+      "visibility": "all"
+    },
+    "alsoAllow": [
+      "message"
+    ]
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      },
+      "whatsapp": {
+        "enabled": true
+      },
+      "discord": {
+        "enabled": true
+      },
+      "ollama": {
+        "enabled": true
+      },
+      "google": {
+        "enabled": true
+      },
+      "searxng": {
+        "enabled": true,
+        "config": {
+          "webSearch": {
+            "baseUrl": "http://localhost:4000/"
+          }
+        }
+      }
+    }
+  },
+  "skills": {
+    "entries": {
+      "goplaces": {
+        "apiKey": "<goplaces-api-key>"
+      },
+      "notion": {
+        "apiKey": "<notion-api-key>"
+      },
+      "openai-whisper-api": {
+        "apiKey": "<openai-api-key>"
+      },
+      "sag": {
+        "apiKey": "<sag-api-key>",
+        "enabled": false
+      }
+    }
+  },
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "boot-md": {
+          "enabled": true
+        },
+        "bootstrap-extra-files": {
+          "enabled": true
+        },
+        "command-logger": {
+          "enabled": true
+        },
+        "compaction-notifier": {
+          "enabled": true
+        },
+        "session-memory": {
+          "enabled": true
+        }
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions",
+    "groupChat": {
+      "visibleReplies": "automatic"
+    }
+  }
+}

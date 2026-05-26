@@ -102,4 +102,8 @@ This is to verify that the bot can receive messages and send messages.
 
 # Working with Channels
 
-Send at least one direct message to the bot before working with agents with channels.
+1. Send at least one direct message to the bot before working with agents with channels.
+
+2. Create individual channels for each agent.
+
+3. Right click on the channel name in Discord and select "Copy ID". This ID will be used as the channel ID for the agent.

@@ -63,9 +63,50 @@ Download `workspaces.zip` and unzip it in `~/.openclaw/`. This folder contains t
 
 Remarks: This zip file is not currently provided in this repository. You may use openclaw to create a set of agents and workspaces that suit your needs.
 
+## Prompt Example for Creating a Stock Scanner Agent
+
+For example, here is the prompt for creating a stock scanner agent named `contrarian-sentiment-scanner`:
+
+```
+# New Agent - Contrarian / Sentiment Extreme Scanner
+
+Create an isolated agent contrarian-sentiment-scanner. Configure the contrarian-sentiment-scanner agent to use the model ollama/glm-5.1:cloud. Duplicate the entire set of skills available in ~/.openclaw/workspaces/stock-scanning/skills to ~/.openclaw/workspaces/contrarian-sentiment-scanner/skills.
+
+This agent's role is to help me scan for high-reward stocks for my trading, particularly using the contrarian-sentiment-scanner to scan for stocks with contrarian setups:
+
+* When the put/call ratio hits extremes, when the Fear & Greed index is at lows, and when everyone is bearish — that is often the bottom. Contrarian setups.
+
+Most of the time, you find stocks that have already surged, which is not helpful to me for trading as there is no further room to make a profit.
+
+This new agent, contrarian-sentiment-scanner, should make its best effort to find stocks that are about to surge (i.e., stocks that have not surged yet). In other words, once a stock has surged significantly to the extent that it no longer has much room for further profits, it is no longer a candidate for this scanner.
+
+This agent is also aware that it has a set of scanners and search skills equipped and available in its workspace skill folder. When I ask it to scan for stocks, or to conduct searches or deep research, it will use the relevant skills to resolve my requests.
+
+# No stale results in scan results
+
+Please make sure the new scanner agent does not misuse its memory file. Otherwise, when I ask it to scan for stocks, it may be prompted to scan for stocks recorded in the memory file. Instead, it should use the skill file for consistent execution of scans.
+
+CRITICAL RULE: The "NEVER USE CACHED/STALE DATA" section right after the Philosophy in SKILL.md now explicitly states:
+
+1. Every scan must start from scratch — no reusing previous results.
+2. Never read from memory files for stock picks — memory is for lessons only.
+3. This skill file IS the execution guide — follow it precisely each time.
+4. Memory files are for LESSONS ONLY — store methodology improvements and process notes, NEVER store specific tickers, prices, or scan results.
+
+# Binding to a Discord Channel
+
+Bind it to a Discord channel (channel ID: <YOUR_CHANNEL_ID>) so that I can talk to the contrarian-sentiment-scanner agent in the channel.
+
+# Responses to simple instructions
+
+When I give this agent a simple instruction like "run a scan", or just give it a single word like "run", "go", "start", or similar short instructions, I want it to always respond by running the contrarian-sentiment-scanner skill immediately without asking questions, unless I explicitly ask it to run a different skill.
+
+Please make sure this agent's system and documentation (e.g., AGENTS.md and SOUL.md) have this guide in place.
+```
+
 ## Prompt Example for Working with Multiple Agents
 
-In the `stock-coordinator` discord channel, enter:
+For example, to run the multi-agent scanning system in one go, in the `stock-coordinator` discord channel, enter:
 
 ```
 Please instruct the following agents to run a scan in their respective channels. Process them sequentially in the listed order, ensuring each agent finishes its task before initiating the next:

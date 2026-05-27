@@ -1,24 +1,3 @@
-## Install Node.js
-
-https://nodejs.org/en/download
-
-## Install HomeBrew
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-Read https://brew.sh/ for details.
-
-## Install Basic Tools
-
-```bash
-npm install -g mcporter@latest
-npm install -g clawhub@latest
-npm install -g @steipete/summarize@latest
-npm install -g @mariozechner/pi-ai@latest
-```
-
 ## Install OpenClaw
 
 ```

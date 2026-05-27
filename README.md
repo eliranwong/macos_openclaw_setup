@@ -9,6 +9,7 @@ This repository contains personal setup notes and configuration for using OpenCl
 
 ## Preparations
 
+* [Basic Tools Setup](basic_tools.md)
 * [Docker + SearXNG Setup](searxng.md)
 * [Coding Agents Setup](coding_agents.md)
 * [Discord Setup](discord.md)

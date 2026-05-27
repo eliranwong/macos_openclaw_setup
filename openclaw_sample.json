@@ -1081,6 +1081,16 @@
       }
     },
     {
+      "agentId": "accumulation-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
       "agentId": "breaking-news-scanner",
       "match": {
         "channel": "discord",

@@ -116,6 +116,7 @@ Please instruct the following agents to run a scan in their respective channels.
 * technical-pattern-scanner
 * unusual-options-scanner
 * short-squeeze-scanner
+* accumulation-scanner
 * breaking-news-scanner
 * second-order-scanner
 * 48-hour-surge-scanner
@@ -143,6 +144,14 @@ Please instruct the following agents to run a scan in their respective channels.
 * earnings-post-event-scanner
 * crypto-correlation-scanner
 * biotech-catalyst-scanner
+* biotech-conference-scanner
+* pdufa-scanner
+* small-cap-earnings-scanner
+* small-cap-explosive-scanner
+* nano-cap-earnings-scanner
+* nano-cap-explosive-scanner
+* gap-and-go-scanner
+* momentum-scanner
 
 Do not trigger multiple scans concurrently, as it can overload my device and the LLM. Allow sufficient time for each scan to complete fully before starting the next.
 ```

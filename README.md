@@ -110,7 +110,7 @@ Please make sure this agent's system and documentation (e.g., AGENTS.md and SOUL
 For example, to run the multi-agent scanning system in one go, in the `stock-coordinator` discord channel, enter:
 
 ```
-Please instruct the following agents to run a scan in their respective channels. Process them sequentially in the listed order, ensuring each agent finishes its task before initiating the next:
+Schedule a daily OpenClaw internal cron job at 5:00 AM to instruct the following agents to run scans in their respective channels. Process them sequentially in the listed order, ensuring each agent finishes its task before the next is initiated:
 
 * sector-rotation-scanner
 * technical-pattern-scanner

@@ -54,6 +54,8 @@ curl -fsSL \
 cp -i .env.example .env
 # edit the default port
 sed -i '' 's/^#SEARXNG_PORT=8080/SEARXNG_PORT=4000/' .env
+# edit API output format
+sed -i '' 's/    - html/    - html\n    - json\n    - csv/' core-config/settings.yml
 # start the service
 docker compose up -d
 ```

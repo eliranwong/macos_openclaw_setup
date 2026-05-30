@@ -1,6 +1,16 @@
 model = "glm-5.1:cloud"
 model_provider = "ollama-launch"
 model_reasoning_effort = "medium"
+#model = "gpt-5.3-codex"
+#model_provider = "azure"
+#model_reasoning_effort = "medium"
+
+# Uncomment to use the four lines below at your own risk
+#sandbox_mode = "danger-full-access"
+#approval_policy = "never"
+#web_search = "live"
+#[sandbox_workspace_write]
+#network_access = true
 
 [profiles.ollama-launch]
 openai_base_url = "http://127.0.0.1:11434/v1/"
@@ -12,23 +22,8 @@ name = "Ollama"
 base_url = "http://127.0.0.1:11434/v1/"
 wire_api = "responses"
 
-#model = "gpt-5.3-codex"
-#model_provider = "azure"
-#model_reasoning_effort = "medium"
-
 [model_providers.azure]
 name = "Azure OpenAI"
 base_url = "https://<resource-name>.openai.azure.com/openai/v1"
 env_key = "AZURE_OPENAI_API_KEY"
 wire_api = "responses"
-
-# Use the below settings at your own risk
-
-#approval_policy = "never"
-#sandbox_mode = "danger-full-access"
-#sandbox_permissions = ["network-access"]
-
-#[sandbox_workspace_write]
-#network_access = true
-#trust_level = "trusted"
-

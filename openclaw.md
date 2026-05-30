@@ -69,6 +69,7 @@ For example, upgrading to a newer nvm version:
 
 ```
 nvm install 24 # change version number here
+nvm alias default 24
 npm install -g mcporter@latest
 npm install -g clawhub@latest
 npm install -g @steipete/summarize@latest

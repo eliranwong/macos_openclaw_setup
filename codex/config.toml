@@ -1,9 +1,8 @@
 model = "glm-5.1:cloud"
 model_provider = "ollama-launch"
-model_reasoning_effort = "medium"
 #model = "gpt-5.3-codex"
 #model_provider = "azure"
-#model_reasoning_effort = "medium"
+model_reasoning_effort = "medium"
 
 # Uncomment to use the four lines below at your own risk
 #sandbox_mode = "danger-full-access"

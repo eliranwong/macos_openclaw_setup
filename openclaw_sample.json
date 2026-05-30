@@ -589,6 +589,13 @@
         "model": "ollama/glm-5.1:cloud"
       },
       {
+        "id": "accumulation-scanner",
+        "name": "Accumulation Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/accumulation-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/accumulation-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
         "id": "earnings-post-event-scanner",
         "name": "Earnings Post-Event Scanner",
         "workspace": "/home/<username>/.openclaw/workspaces/earnings-post-event-scanner",

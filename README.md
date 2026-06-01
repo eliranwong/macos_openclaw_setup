@@ -64,6 +64,14 @@ Download `workspaces.zip` and unzip it in `~/.openclaw/`. This folder contains t
 
 Remarks: This zip file is not currently provided in this repository. You may use openclaw to create a set of agents and workspaces that suit your needs.
 
+### Correct Discord Channel IDs for Stock Coordinator
+
+In the stock-coordinator channel, enter:
+
+```
+Correct all the Discord channel IDs in your run-multiple-scans skill file. Use the Discord channel ID bindings in ~/.openclaw/openclaw.json as the authoritative reference. Ensure each scanner agent ID is matched to the correct channel.
+```
+
 ## Prompt Example for Creating a Stock Scanner Agent
 
 For example, here is the prompt for creating a stock scanner agent named `contrarian-sentiment-scanner`:
@@ -110,50 +118,7 @@ Please make sure this agent's system and documentation (e.g., AGENTS.md and SOUL
 For example, to run the multi-agent scanning system in one go, in the `stock-coordinator` discord channel, enter:
 
 ```
-Schedule a daily OpenClaw internal cron job at 5:00 AM to instruct the following agents to run scans in their respective channels. Process them sequentially in the listed order, ensuring each agent finishes its task before the next is initiated:
-
-* sector-rotation-scanner
-* technical-pattern-scanner
-* unusual-options-scanner
-* short-squeeze-scanner
-* accumulation-scanner
-* breaking-news-scanner
-* second-order-scanner
-* 48-hour-surge-scanner
-* 3-day-5pct-scanner
-* 7-day-explosive-scanner
-* operational-milestone-scanner
-* ipo-spac-scanner
-* pre-surge-scanner
-* pre-catalyst-scanner
-* pre-move-discovery-scanner
-* dip-before-catalyst-scanner
-* contrarian-sentiment-scanner
-* oversold-bounce-scanner
-* base-breakout-scanner
-* mega-mover-scanner
-* sec-filing-anomaly-scanner
-* insider-buying-scanner
-* insider-selling-dilution-scanner
-* policy-catalyst-scanner
-* international-exchanges-scanner
-* event-driven-scanner
-* analyst-upgrade-downgrade-scanner
-* earnings-estimate-revision-scanner
-* pre-earnings-runup-scanner
-* earnings-post-event-scanner
-* crypto-correlation-scanner
-* biotech-catalyst-scanner
-* biotech-conference-scanner
-* pdufa-scanner
-* small-cap-earnings-scanner
-* small-cap-explosive-scanner
-* nano-cap-earnings-scanner
-* nano-cap-explosive-scanner
-* gap-and-go-scanner
-* momentum-scanner
-
-Do not trigger multiple scans concurrently, as it can overload my device and the LLM. Allow sufficient time for each scan to complete fully before starting the next.
+Read and run the skill `run-multiple-scans`
 ```
 
 ## Other Platforms

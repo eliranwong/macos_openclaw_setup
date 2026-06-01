@@ -13,6 +13,7 @@ ipo-spac-scanner
 pre-surge-scanner
 pre-catalyst-scanner
 pre-move-discovery-scanner
+pullback-buy-scanner
 dip-before-catalyst-scanner
 contrarian-sentiment-scanner
 oversold-bounce-scanner

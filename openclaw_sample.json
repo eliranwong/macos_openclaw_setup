@@ -1018,12 +1018,12 @@
       }
     },
     {
-      "agentId": "stock-coordinator",
+      "agentId": "explosive-scanner",
       "match": {
-        "channel": "discord",
+        "channel": "telegram",
         "peer": {
           "kind": "group",
-          "id": "<discord-channel-id>"
+          "id": "<telegram-group-id>"
         }
       }
     },
@@ -1039,6 +1039,16 @@
     },
     {
       "agentId": "stock-ticker-deep-dive-analyst",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "stock-coordinator",
       "match": {
         "channel": "discord",
         "peer": {
@@ -1189,6 +1199,16 @@
     },
     {
       "agentId": "pre-move-discovery-scanner",
+      "match": {
+        "channel": "discord",
+        "peer": {
+          "kind": "group",
+          "id": "<discord-channel-id>"
+        }
+      }
+    },
+    {
+      "agentId": "pullback-buy-scanner",
       "match": {
         "channel": "discord",
         "peer": {
@@ -1479,26 +1499,6 @@
     },
     {
       "agentId": "after-hours-scanner",
-      "match": {
-        "channel": "discord",
-        "peer": {
-          "kind": "group",
-          "id": "<discord-channel-id>"
-        }
-      }
-    },
-    {
-      "agentId": "explosive-scanner",
-      "match": {
-        "channel": "discord",
-        "peer": {
-          "kind": "group",
-          "id": "<discord-channel-id>"
-        }
-      }
-    },
-    {
-      "agentId": "stock-market-knowledge",
       "match": {
         "channel": "discord",
         "peer": {

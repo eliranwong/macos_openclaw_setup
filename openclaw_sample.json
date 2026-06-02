@@ -563,6 +563,13 @@
         "model": "ollama/glm-5.1:cloud"
       },
       {
+        "id": "pullback-buy-scanner",
+        "name": "Pullback Buy Scanner",
+        "workspace": "/home/<username>/.openclaw/workspaces/pullback-buy-scanner",
+        "agentDir": "/home/<username>/.openclaw/agents/pullback-buy-scanner/agent",
+        "model": "ollama/glm-5.1:cloud"
+      },
+      {
         "id": "stock-coordinator",
         "name": "Stock Coordinator",
         "workspace": "/home/<username>/.openclaw/workspaces/stock-coordinator",
